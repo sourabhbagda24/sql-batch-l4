@@ -126,6 +126,65 @@ select name , population , population*1.1+population from country;
     
     -- name="albania" , continent ="albania xyz"
     
+    -- functions
+    /*
+    set of statement
+    functions
+    scaler function=> row by row kaam karega(result for each row)
+    multi line function=>multiple line p apply nd give 1 output
+    scaler function can apply on =>date,int,float,string
+    */
+    
+    -- string related function 
+    -- CAse conversion
+    use world;
+    select name, continent,upper(name), lower(name) from country;
+    
+    select name,continent,concat(continent,'-', code,'-','regex') from country;
+    
+    -- concat_ws=> concat with a seprator( starting me ek underscore dalo baaki result m bhi dikhega)
+      select name,continent,concat_ws( '-',continent,'regex') from country;
+      
+      -- substr(substring)=> charcter extract based on the position
+      select name, substr(name,2) from country;
+         select name, substr(name,2),substr(name,1,3) from country;
+           select name, substr(name,1),substr(name,-4,2) from country;
+           
+           select name, continent , substr(name,1,1), substr(continent,1,1) from country;
+           select name, continent from country
+           where substr(name,1,1) = substr(continent,1,1);
+           
+           select name, continent, substr(name,1,3) from country
+           where substr(name,1,3) ='alg';
+           
+           -- instr(basically search position of charcter)
+           select name, instr(name,'e') from country;
+           
+           -- length(byte btata h)
+           -- char_length(to get total charcter)
+           select  char_length(' yash');
+           select name,char_length(name) from country;
+           
+           -- trim(extra whitespaces ya charcter ko remove krna)
+           -- lterim ,rtrim
+           
+           select char_length('    yash.'   );
+           
+           select char_length( trim('      yash.'   ));
+           
+           select trim('   yagggshgggggggg'    );
+           select trim( both 'g' from  'yagggshgggggggg');
+           
+           select name, trim(both 'a' from name) from country; 
+           
+         -- lpad or rpad
+         -- fixed charcter ka pura data bnanaa
+         select name, population, lpad(population, 5,'#') from country;
+           
+           
+      
+    
+    
     
     
     
